@@ -1,0 +1,194 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/user/Desktop/parametros_generales.properties",
+		"/C/Users/user/Desktop/reporte sabana 03-23-2017.sql",
+		"/C/Users/user/Downloads/hbpix",
+		"/C/Users/user/Desktop/build-config.js",
+		"/D/Documentos/WIFII",
+		"/D/Program Files/Apache Software Foundation/apache-tomcat-8.5.9/manifest.json",
+		"/F/Make The Future Java Starter Kit/Hands-on lab/OTN - 02-Java_SE7-and-JDK7/swfobject.js",
+		"/F/Crack/Keygen/Check_Disable.cmd",
+		"/C/Users/user/Desktop/wk leo/_/images/.htaccess",
+		"/C/Users/user/Desktop/wk leo/_/INSTALL",
+		"/C/Users/user/Desktop/wk leo/_/index.php",
+		"/C/Users/user/Desktop/wk leo/_/includes/WebStart.php",
+		"/C/Users/user/Desktop/wk leo/_/skins/Vector.php",
+		"/C/Users/user/Desktop/wk leo/_/LocalSettings.php",
+		"/C/Users/user/Desktop/wk leo/_/includes/context/IContextSource.php",
+		"/C/MAMP/htdocs/wkleo/images/.htaccess",
+		"/D/Documentos/windows Builder.xml",
+		"/C/Users/user/Desktop/wk leo/_/images/README",
+		"/D/Documentos/Installation Details WikiLeo",
+		"/C/Users/user/Desktop/.htaccess",
+		"/C/Users/user/Desktop/wk leo/_/HISTORY",
+		"/C/MAMP/htdocs/wkleo/LocalSettings.php",
+		"/C/Users/user/Desktop/wk leo/_/docs/uidesign/design.html",
+		"/C/Users/user/Desktop/wk leo/_/.htaccess",
+		"/C/Users/user/Desktop/wk leo/_/cache/.htaccess",
+		"/D/testGit/ADAuth/src/org/cgiar/ciat/main/LDAPConnection.java",
+		"/D/Documentos/club leo/DEBERES DEL TESORERO.md",
+		"/D/Documentos/club leo/MANUAL DE INSTRUCCION DMFL.md",
+		"/C/Users/user/Downloads/README (1)",
+		"/C/Users/user/AppData/Local/Temp/Rar$DI01.563/README.md"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "package.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
