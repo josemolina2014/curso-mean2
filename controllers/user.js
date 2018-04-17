@@ -138,6 +138,11 @@ function updateUser(req, res)
 	});
 }
 
+function uploadImage(req, res) 
+{
+	// body...
+}
+
 module.exports = {
 	pruebas,
 	saveUser, 
