@@ -24,7 +24,7 @@ function saveUser(req, res)
 	console.log(params);
 	user.name = params.name;
 	user.surname = params.surname;
-	user.email = params.email;
+	user.email = params.email.toLowerCase();
 	user.role = 'ROLE_ADMIN';
 	user.image = 'null';
 
@@ -94,7 +94,6 @@ function loginUser(req,res)
 						if (check) 
 							{
 								//devolver los datos del usuario logueado
-
 								if (params.gethash) 
 								{
 									//devolver un token jwt
@@ -156,7 +155,8 @@ function uploadImage(req, res)
 			var file_ext = ext_split[1];
 			if (file_ext=='png' || file_ext == 'jpg' || file_ext =='gif') 
 				{
-					User.findByIdAndUpdate(userId, {image : file_name}, (err, userUpdated) =>
+					User.findByIdAndUpdate(userId, {image : file_name}, (err, userUpdated) => 
+					{
 						if (err) 
 						{
 							res.status(500).send({message: 'Error al actualizar el usuario'});		
@@ -169,6 +169,7 @@ function uploadImage(req, res)
 								res.status(200).send({user : userUpdated});	
 							}
 						}
+					});
 				} 
 				else 
 				{
