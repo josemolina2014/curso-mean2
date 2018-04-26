@@ -101,7 +101,8 @@ function getSongs(req, res)
 	});
 }
 
-function updateSong(req, res) {
+function updateSong(req, res) 
+{
 	var songId = req.params.id;
 	var update = req.body;
 
@@ -119,16 +120,35 @@ function updateSong(req, res) {
 				res.status(200).send({song : songUpdated});
 			}
 		}
-
 	});
-
-
 }
+
+function deleteSong(req, res) 
+{
+	var songId = req.params.id;
+	
+	Song.findByIdAndRemove(songId, (err,songRemoved) =>
+	{
+		if(err)
+		{
+			res.status(500).send({message: 'Error en el servidor'});
+		}
+		else{
+
+			if (!songRemoved) {
+				res.status(404).send({message: 'No se ha borrado la canción'});
+			} else {
+				res.status(200).send({song : songRemoved});
+			}
+		}
+	});
+}	
 
 module.exports =
 {
 	getSong,
 	saveSong,
 	getSongs,
-	updateSong
+	updateSong,
+	deleteSong
 }
