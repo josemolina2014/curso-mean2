@@ -15,4 +15,7 @@ export class AppComponent {
   constructor(){
   	this.user = new User('','','','','','ROLE_USER','');
   }
+  public onSubmit(){
+  	console.log(this.user);
+  }
 }
