@@ -23,14 +23,11 @@ export class UserEditComponent implements OnInit
 		this.titulo='Actualizar mis datos';
 		this.identity = this._userService.getIdentity();
     	this.token = this._userService.getToken();    
-		console.log('constructor '+this.titulo);
-
+		
 	}
 
-	ngOnInit(){		
-		
+	ngOnInit(){				
 		console.log('user-edit.component.ts cargado');
-		console.log('ngOnInit '+this.titulo);
-
+		
 	}
 }
