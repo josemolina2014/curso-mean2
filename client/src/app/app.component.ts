@@ -25,10 +25,7 @@ export class AppComponent implements OnInit{
   ngOnInit()
   {
     this.identity = this._userService.getIdentity();
-    this.token = this._userService.getToken();
-
-    console.log(this.identity);
-    console.log(this.token);
+    this.token = this._userService.getToken();    
   }
 
   public onSubmit(){
@@ -90,4 +87,15 @@ export class AppComponent implements OnInit{
 
       );
   }
+
+  logout()
+  {
+    localStorage.removeItem('identity');
+    localStorage.removeItem('token');
+    localStorage.clear();
+
+    this.identity = null;
+    this.token = null;
+  }
+
 }

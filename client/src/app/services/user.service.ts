@@ -34,7 +34,7 @@ export class UserService {
 	}
 
 	getIdentity()
-	{
+	{		
 		let identity = JSON.parse(localStorage.getItem('identity'));
 
 		if(identity != 'undefined'){
@@ -52,8 +52,7 @@ export class UserService {
 		if(token != 'undefined')
 		{
 			this.token = token;
-		}else 
-		{
+		}else{
 			this.token = null;
 		}
 		return this.token;
