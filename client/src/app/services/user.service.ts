@@ -42,6 +42,9 @@ export class UserService {
 	    	.map(res => res.json());
 	}
 
+
+	
+
 	getIdentity()
 	{		
 		let identity = JSON.parse(localStorage.getItem('identity'));
