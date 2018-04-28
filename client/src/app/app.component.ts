@@ -24,7 +24,11 @@ export class AppComponent implements OnInit{
 
   ngOnInit()
   {
+    this.identity = this._userService.getIdentity();
+    this.token = this._userService.getToken();
 
+    console.log(this.identity);
+    console.log(this.token);
   }
 
   public onSubmit(){
@@ -41,6 +45,7 @@ export class AppComponent implements OnInit{
          }
          else{
           //crear elemento en el localstorage para mantener la sesión
+          localStorage.setItem('identity', JSON.stringify(identity)); 
 
           //conseguir el token para enviarselo a cada peticion http
 
@@ -55,7 +60,7 @@ export class AppComponent implements OnInit{
                  }
                  else{
                   //crear elemento en el localstorage para tener el token disponible
-
+                  localStorage.setItem('token', token); 
                   console.log(token);
                   console.log(identity);
                  }
