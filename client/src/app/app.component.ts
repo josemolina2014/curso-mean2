@@ -20,13 +20,25 @@ export class AppComponent implements OnInit{
   	this.user = new User('','','','','','ROLE_USER','');
   }
 
-  ngOnInit(){
+  ngOnInit()
+  {
 
-  	var texto = this._userService.signup();
-  	console.log(texto);
   }
 
   public onSubmit(){
   	console.log(this.user);
+    this._userService.signup2(this.user).subscribe(
+      response => {
+        console.log(response);
+      },
+      error=>{
+        var errorMessage = <any> error;
+        if(errorMessage !=null)
+        {
+          console.log(errorMessage);
+        }
+      }
+
+      );
   }
 }

@@ -73,6 +73,12 @@ function loginUser(req,res)
 	var email = params.email;
 	var password = params.password;
 
+
+	if(email==null){
+		res.status(404).send({ message: ' El usuario no ha podido loguearse'});
+	}
+
+
 	User.findOne({
 		email: email.toLowerCase()},
 		(err, user) => 

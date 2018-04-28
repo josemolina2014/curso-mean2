@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+//import {HttpClientModule} from '@angular/common/http';
+// Importamos el módulo http del paquete http de Angular
+import { HttpModule, JsonpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
@@ -13,7 +15,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    //HttpClientModule
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
