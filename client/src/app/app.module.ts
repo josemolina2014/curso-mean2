@@ -4,6 +4,7 @@ import { FormsModule} from '@angular/forms';
 // Importamos el módulo http del paquete http de Angular
 import { HttpModule, JsonpModule } from '@angular/http';
 
+import {routing, appRoutingProviders} from './app.routing';
 import { AppComponent } from './app.component';
 import { UserEditComponent} from './components/user-edit.component';
 
@@ -16,9 +17,10 @@ import { UserEditComponent} from './components/user-edit.component';
   imports: [
     BrowserModule,
     FormsModule,    
-    HttpModule
+    HttpModule,
+    routing
   ],
-  providers: [],
+  providers: [appRoutingProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

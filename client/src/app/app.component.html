@@ -27,8 +27,9 @@
       Cerrar Sesión
     </span>
 
-    <a href="#">
-      <span class="glyphicon glyphicon-cog" aria-hidden="true" ></span>
+    <a [routerLink]="['/mis-datos']">
+     
+      <span class="glyphicon glyphicon-cog"></span>
       Mis datos 
     </a>    
  </nav>
@@ -38,7 +39,7 @@
 <div class="clearfix"></div>
 <div *ngIf="identity" class="central col-lg-11">
   <p>Estas logueado en la aplicación</p>
-  <user-edit></user-edit>
+  <router-outlet></router-outlet>
 </div>
 
 <div class="row" *ngIf="!identity">
