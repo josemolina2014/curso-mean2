@@ -43,6 +43,11 @@ export class UserService {
 	}
 
 	updateUser(userToUpdate){
+
+		console.log('UserService.url: '+this.url);
+		console.log('UserService.token: '+this.token);
+		console.log('UserService.updateUser: '+userToUpdate.name);
+
 		let params = JSON.stringify(userToUpdate);	    
 	    let headers = new Headers({
 	    							'Content-Type':'application/json',
