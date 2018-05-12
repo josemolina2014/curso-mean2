@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 
-import {GLOBAL} from '../services/global'
+import {GLOBAL} from '../services/global';
 import {UserService } from '../services/user.service';
 import {User} from '../models/user';
 
@@ -57,6 +57,9 @@ export class UserEditComponent implements OnInit
 							 (result: any)=> {
 							 		this.user.image = result.image;
 							 		localStorage.setItem('identity', JSON.stringify(this.user));
+
+							 		let image_path = this.url + 'get-image-user/'+this.user.image;
+							 		document.getElementById("image-logged").setAttribute('src',image_path); 
 
 							 		console.log(this.user);
 								}
