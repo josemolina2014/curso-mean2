@@ -42,12 +42,8 @@ export class UserService {
 	    	.map(res => res.json());
 	}
 
-	updateUser(userToUpdate){
-
-		console.log('UserService.url: '+this.url);
-		console.log('UserService.token: '+this.token);
-		console.log('UserService.updateUser: '+userToUpdate.name);
-
+	updateUser(userToUpdate)
+	{
 		let params = JSON.stringify(userToUpdate);	    
 	    let headers = new Headers({
 	    							'Content-Type':'application/json',
@@ -74,7 +70,7 @@ export class UserService {
 
 	getToken()
 	{
-		let token = JSON.parse(localStorage.getItem('token'));
+		let token = localStorage.getItem('token');
 
 		if(token != 'undefined')
 		{
