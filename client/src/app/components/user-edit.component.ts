@@ -30,10 +30,12 @@ export class UserEditComponent implements OnInit
     	this.user = this.identity;
 		this.url = GLOBAL.url;		
 
+
 	}
 
 	ngOnInit(){				
 		console.log('user-edit.component.ts cargado');
+		console.log(this.user);
 		
 	}
 
