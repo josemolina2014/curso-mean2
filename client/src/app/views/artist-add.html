@@ -1,6 +1,11 @@
-<div>
+<div class="col-lg-6">
 	<h1>{{titulo}}</h1>
-	<form #formArtist="ngForm" (ngSubmit)= "onSubmit()" class="col-lg-6">
+	<div *ngIf="alertMessage">
+      <div class="alert alert-info">
+        {{alertMessage}}
+      </div>
+  	</div>
+	<form #formArtist="ngForm" (ngSubmit)= "onSubmit()" >
 		<p> 
 			<label>Nombre</label>
 			<input type="text" #name="ngModel" name="name" [(ngModel)]="artist.name" required class="form-control" />
