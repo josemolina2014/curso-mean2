@@ -6,15 +6,15 @@ import {UserService} from '../services/user.service';
 import {Artist} from '../models/artist';
 
 @Component ({
-		selector: 'artist-list',
-		templateUrl: '../views/artist-list.html',
+		selector: 'artist-add',
+		templateUrl: '../views/artist-add.html',
 		providers: [UserService]
 	}) 
 
-export class ArtistListComponent implements OnInit{
+export class ArtistAddComponent implements OnInit{
 
 	public titulo: string;
-	public artist: Artist;
+	public artist: Artist
 	public identity;
 	public token;
 	public url;
@@ -24,7 +24,7 @@ export class ArtistListComponent implements OnInit{
 		private _router : Router,
 		private _userService: UserService
 	){
-		this.titulo = 'Artistas';
+		this.titulo = 'Crear nuevo Artista';
 		this.identity = this._userService.getIdentity();
 		this.token = this._userService.getToken();
 		this.url = GLOBAL.url;
@@ -34,8 +34,7 @@ export class ArtistListComponent implements OnInit{
 
 	ngOnInit()
 	{
-		console.log('artist-list.component.ts cargado');
-
+		console.log('artist-add.component.ts cargado');
 		//conseguir el listado de artistas
 
 	}
