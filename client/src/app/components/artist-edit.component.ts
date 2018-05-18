@@ -4,12 +4,13 @@ import {Router, ActivatedRoute, Params} from "@angular/router";
 import {GLOBAL} from '../services/global';
 import {UserService} from '../services/user.service';
 import {ArtistService} from '../services/artist.service';
+import {UploadService} from '../services/upload.service';
 import {Artist} from '../models/artist';
 
 @Component ({
 		selector: 'artist-edit',
 		templateUrl: '../views/artist-add.html',
-		providers: [UserService,ArtistService]
+		providers: [UserService,ArtistService, UploadService]
 	}) 
 
 export class ArtistEditComponent implements OnInit
@@ -27,9 +28,10 @@ export class ArtistEditComponent implements OnInit
 		private _route: ActivatedRoute,
 		private _router : Router,
 		private _userService: UserService,
-		private _artistService: ArtistService
+		private _artistService: ArtistService,
+		private _uploadService: UploadService
 	){
-		this.titulo = 'Crear nuevo Artista';
+		this.titulo = 'Editar artista';
 		this.identity = this._userService.getIdentity();
 		this.token = this._userService.getToken();
 		this.url = GLOBAL.url;
@@ -46,8 +48,8 @@ export class ArtistEditComponent implements OnInit
 
 	}
 
-	getArtist(){
-
+	getArtist()
+	{
 		this._route.params.forEach((params: Params) => {
 			let id = params['id'];
 			this._artistService.getArtist(this.token, id).subscribe (
@@ -75,7 +77,8 @@ export class ArtistEditComponent implements OnInit
 		//this._artistService.getArtist();
 	}
 
-	onSubmit(){
+	onSubmit()
+	{
 		console.log(this.artist);
 		this._route.params.forEach((params: Params) => 
 		{
@@ -88,6 +91,18 @@ export class ArtistEditComponent implements OnInit
 					}else {						
 						this.alertMessage = 'El artista se ha actualizado correctamente!';
 						//this._router.navigate(['/editar-artista'], response.artist._id);
+						//subir la imagen del artista
+						this._uploadService.makeFileRequest(this.url+'upload-image-artist/'+id, [], this.filesToUpload, this.token, 'image')
+							.then(
+									(result) =>{
+										this._router.navigate(['/artistas',1]);
+									},
+									(error) => {
+										console.log(error);
+									}
+
+								);
+
 					}
 
 
@@ -104,6 +119,14 @@ export class ArtistEditComponent implements OnInit
 				);
 
 		});
+	}
+
+
+	public filesToUpload: Array<File>;
+
+	fileChangeEvent(fileInput: any)
+	{
+		this.filesToUpload = <Array <File>> fileInput.target.files;
 	}
 
 }
