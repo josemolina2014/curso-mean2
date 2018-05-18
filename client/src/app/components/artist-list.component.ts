@@ -14,7 +14,7 @@ import {Artist} from '../models/artist';
 export class ArtistListComponent implements OnInit{
 
 	public titulo: string;
-	public artist: Artist;
+	public artists: Artist[];
 	public identity;
 	public token;
 	public url;
@@ -28,7 +28,6 @@ export class ArtistListComponent implements OnInit{
 		this.identity = this._userService.getIdentity();
 		this.token = this._userService.getToken();
 		this.url = GLOBAL.url;
-		this.artist = new Artist('','','');
 
 	}
 
