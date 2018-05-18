@@ -12,7 +12,8 @@ import {Artist} from '../models/artist';
 		providers: [UserService,ArtistService]
 	}) 
 
-export class ArtistEditComponent implements OnInit{
+export class ArtistEditComponent implements OnInit
+{
 
 	public titulo: string;
 	public artist: Artist
@@ -41,7 +42,37 @@ export class ArtistEditComponent implements OnInit{
 	{
 		console.log('artist-add.component.ts cargado');
 		//llamar al metodo del api para sacar un artista en base a su id getArtist
-		
+		this.getArtist();
+
+	}
+
+	getArtist(){
+
+		this._route.params.forEach((params: Params) => {
+			let id = params['id'];
+			this._artistService.getArtist(this.token, id).subscribe (
+				response=> {					
+
+					if(!response.artist){
+						this._router.navigate(['/']);						
+					}
+					else {
+						this.artist = response.artist;
+					}
+
+				},
+				error=> {
+					var errorMessage = <any> error;
+			        if(errorMessage !=null)
+			        {
+			        	var body = JSON.parse(error._body);
+			        	this.alertMessage = body.message;
+			        	console.log(error);
+			        }
+				});
+		})
+
+		//this._artistService.getArtist();
 	}
 
 	onSubmit(){
