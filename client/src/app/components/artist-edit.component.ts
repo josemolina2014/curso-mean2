@@ -70,37 +70,40 @@ export class ArtistEditComponent implements OnInit
 			        	console.log(error);
 			        }
 				});
-		})
+		});
 
 		//this._artistService.getArtist();
 	}
 
 	onSubmit(){
 		console.log(this.artist);
+		this._route.params.forEach((params: Params) => 
+		{
+			let id = params['id'];
+			this._artistService.editArtist(this.token, id, this.artist).subscribe(
+				response => 
+				{
+					if(!response.artist){
+						this.alertMessage = 'Error en el servidor';
+					}else {						
+						this.alertMessage = 'El artista se ha actualizado correctamente!';
+						//this._router.navigate(['/editar-artista'], response.artist._id);
+					}
 
-		this._artistService.addArtist(this.token, this.artist).subscribe(
-			response => {				
 
-				if(!response.artist){
-					this.alertMessage = 'Error en el servidor';
-				}else {
-					this.artist = response.artist;
-					this.alertMessage = 'El artista se ha creado correctamente!';
-					//this._router.navigate(['/editar-artista'], response.artist._id);
+				},
+				error => {
+					var errorMessage = <any> error;
+			        if(errorMessage !=null)
+			        {
+			        	var body = JSON.parse(error._body);
+			        	this.alertMessage = body.message;
+			        	console.log(error);
+			        }
 				}
+				);
 
-
-			},
-			error => {
-				var errorMessage = <any> error;
-		        if(errorMessage !=null)
-		        {
-		        	var body = JSON.parse(error._body);
-		        	this.alertMessage = body.message;
-		        	console.log(error);
-		        }
-			}
-			);
+		});
 	}
 
 }
