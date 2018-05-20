@@ -60,7 +60,8 @@ export class ArtistDetailComponent implements OnInit
 					else {
 						this.artist = response.artist;	
 						
-						//sacar los albums de la lista				
+						//sacar los albums de la lista			
+							
 					}
 
 				},
