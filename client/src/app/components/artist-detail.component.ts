@@ -58,7 +58,9 @@ export class ArtistDetailComponent implements OnInit
 						this._router.navigate(['/']);						
 					}
 					else {
-						this.artist = response.artist;						
+						this.artist = response.artist;	
+						
+						//sacar los albums de la lista				
 					}
 
 				},
