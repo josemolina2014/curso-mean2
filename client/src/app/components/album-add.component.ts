@@ -4,13 +4,14 @@ import {Router, ActivatedRoute, Params} from "@angular/router";
 import {GLOBAL} from '../services/global';
 import {UserService} from '../services/user.service';
 import {ArtistService} from '../services/artist.service';
+import {AlbumService} from '../services/album.service';
 import {Artist} from '../models/artist';
 import {Album} from '../models/album';
 
 @Component ({
 		selector: 'album-add',
 		templateUrl: '../views/album-add.html',
-		providers: [UserService,ArtistService]
+		providers: [UserService,ArtistService,AlbumService]
 	}) 
 
 export class AlbumAddComponent implements OnInit{
@@ -27,7 +28,8 @@ export class AlbumAddComponent implements OnInit{
 		private _route: ActivatedRoute,
 		private _router : Router,
 		private _userService: UserService,
-		private _artistService: ArtistService
+		private _artistService: ArtistService,
+		private _albumService: AlbumService
 	){
 		this.titulo = 'Crear nuevo Album';
 		this.identity = this._userService.getIdentity();
@@ -57,17 +59,15 @@ export class AlbumAddComponent implements OnInit{
 
 	console.log(this.album);
 
-/*
-		
-		this._artistService.addArtist(this.token, this.artist).subscribe(
+	this._albumService.addAlbum(this.token, this.album).subscribe(
 			response => {				
 
-				if(!response.artist){
+				if(!response.album){
 					this.alertMessage = 'Error en el servidor';
 				}else {
-					this.artist = response.artist;
-					this.alertMessage = 'El artista se ha creado correctamente!';
-					this._router.navigate(['/editar-artista', response.artist._id]);
+					this.album = response.album;
+					this.alertMessage = 'El album se ha creado correctamente!';
+					//this._router.navigate(['/editar-album', response.album._id]);
 				}
 
 
@@ -81,8 +81,7 @@ export class AlbumAddComponent implements OnInit{
 		        	console.log(error);
 		        }
 			}
-			);
-			*/
+		);
 	}
 
 }

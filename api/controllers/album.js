@@ -34,7 +34,7 @@ function saveAlbum(req,res)
 	var album = new Album();
 
 	var params = req.body;
-	album.title = params.tile;
+	album.title = params.title;
 	album.description = params.description;
 	album.year = params.year;
 	album.image = 'null';
