@@ -14,7 +14,14 @@ html, body {
 	height: 100%;
 	overflow-y: scroll; 
 }
+.seguro {
+	margin-top: -30px;
+	background: black;
+	background: #222326;
+	height: auto;
+	position: absolute;
 
+}
 .head-title{
 	font-size: 20px;
 	font-weight: bold;
