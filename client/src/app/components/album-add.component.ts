@@ -67,7 +67,7 @@ export class AlbumAddComponent implements OnInit{
 				}else {
 					this.album = response.album;
 					this.alertMessage = 'El album se ha creado correctamente!';
-					//this._router.navigate(['/editar-album', response.album._id]);
+					this._router.navigate(['/editar-album', response.album._id]);
 				}
 
 
