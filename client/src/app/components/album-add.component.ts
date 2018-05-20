@@ -48,9 +48,17 @@ export class AlbumAddComponent implements OnInit{
 	}
 
 	onSubmit()
-	{		
+	{	
+		
+	this._route.params.forEach((params: Params) => {		
+		let artist_id = params['artist'];
+		this.album.artist = artist_id;
+	});
+
+	console.log(this.album);
+
 /*
-		console.log(this.artist);
+		
 		this._artistService.addArtist(this.token, this.artist).subscribe(
 			response => {				
 
