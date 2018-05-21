@@ -78,7 +78,7 @@ export class AlbumService
 		});
 
 		let options = new RequestOptions({headers: headers});
-		return this._http.delete(this.url+'artist/'+id, options)
+		return this._http.delete(this.url+'album/'+id, options)
 						.map(res => res.json());
 	}
 }
