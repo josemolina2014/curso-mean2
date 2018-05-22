@@ -102,24 +102,24 @@ export class AlbumDetailComponent implements OnInit
 		});	
 		
 	}
-/*
+
 	onDeleteConfirm(id){
 		this.confirmado = id;
 	}
 
-	onCancelAlbum(){
+	onCancelSong(){
 		this.confirmado = null;
 	}
 
-	onDeleteAlbum(id){
-		this._albumService.deleteAlbum(this.token, id).subscribe(
+	onDeleteSong(id)
+	{
+		this._songService.deleteSong(this.token, id).subscribe(
 			response=> {
-				if(!response.album){
+				if(!response.song){
 					alert('Error en el servidor');
 				}
-				this.getArtist();
+				this.getAlbum();
 			},
-
 			error=> {
 				var errorMessage = <any> error;
 		        if(errorMessage !=null)
@@ -130,6 +130,5 @@ export class AlbumDetailComponent implements OnInit
 		        }
 			}
 		);
-	}
-	*/
+	}	
 }
