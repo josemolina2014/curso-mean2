@@ -5,8 +5,10 @@ import {GLOBAL} from '../services/global';
 import {UserService} from '../services/user.service';
 import {UploadService} from '../services/upload.service';
 import {AlbumService} from '../services/album.service';
+
 import {Artist} from '../models/artist';
 import {Album} from '../models/album';
+
 
 @Component ({
 		selector: 'album-edit',
@@ -31,6 +33,7 @@ export class AlbumEditComponent implements OnInit{
 		private _userService: UserService,		
 		private _albumService: AlbumService,
 		private _uploadService: UploadService
+		
 	){
 		this.titulo = 'Editar Album';
 		this.identity = this._userService.getIdentity();
@@ -44,27 +47,20 @@ export class AlbumEditComponent implements OnInit{
 	{
 		console.log('album-add.component.ts cargado');
 
-
 		//conseguir el album
-
 		this.getAlbum();
-
-
 	}
 	getAlbum(){
 
 		this._route.params.forEach((params: Params) => {		
 			let id = params['id'];
 			this._albumService.getAlbum(this.token, id).subscribe(
-				response => {				
-
+				response => {
 					if(!response.album){
 						this._router.navigate(['/']);
 					}else {
-						this.album = response.album;						
+						this.album = response.album;	
 					}
-
-
 				},
 				error => {
 					var errorMessage = <any> error;

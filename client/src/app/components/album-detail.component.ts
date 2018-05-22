@@ -2,22 +2,26 @@ import {Component, OnInit} from "@angular/core";
 import {Router, ActivatedRoute, Params} from "@angular/router";
 
 import {GLOBAL} from '../services/global';
-import {UserService} from '../services/user.service';
 
+import {UserService} from '../services/user.service';
 import {AlbumService} from '../services/album.service';
+import {SongService} from '../services/song.service';
+
 import {Artist} from '../models/artist';
 import {Album} from '../models/album';
+import {Song} from '../models/song';
 
 @Component ({
 		selector: 'album-detail',
 		templateUrl: '../views/album-detail.html',
-		providers: [UserService,AlbumService]
+		providers: [UserService,AlbumService,SongService]
 	}) 
 
 export class AlbumDetailComponent implements OnInit
 {
 	public album : Album;
 	public albums: Album[];
+	public songs: Song[];
 	public identity;
 	public token;
 	public url;
@@ -28,7 +32,8 @@ export class AlbumDetailComponent implements OnInit
 		private _route: ActivatedRoute,
 		private _router : Router,
 		private _userService: UserService,
-		private _albumService: AlbumService
+		private _albumService: AlbumService,
+		private _songService: SongService
 		
 	){
 		
@@ -49,10 +54,7 @@ export class AlbumDetailComponent implements OnInit
 	}
 
 	getAlbum()
-	{
-
-		console.log("el metodo funciona");
-		
+	{	
 		this._route.params.forEach((params: Params) => {
 			let id = params['id'];
 			this._albumService.getAlbum(this.token, id).subscribe (
@@ -63,31 +65,27 @@ export class AlbumDetailComponent implements OnInit
 					}
 					else {
 						this.album = response.album;	
-						/*
-						//sacar los albums de la lista	
-						this._albumService.getAlbums(this.token, response.artist._id).subscribe(
-							response=> {
-								
-
-								if(!response.albums){
-									this.alertMessage = 'Este artista no tiene albums';
+						
+						//sacar las canciones	
+						this._songService.getSongs(this.token,response._id).subscribe(
+							response => {	
+								if(!response.songs){
+									this.alertMessage = 'Este album no tiene canciones';									
 								}else {
-									this.albums = response.albums;
-								}
+									this.songs = response.songs;									
+								}			
 
 							},
-
-							error=> {
+							error => {
 								var errorMessage = <any> error;
 						        if(errorMessage !=null)
 						        {
-						        	var body = JSON.parse(error._body);
-						        	//this.alertMessage = body.message;
+						        	var body = JSON.parse(error._body);			        	
 						        	console.log(error);
 						        }
 							}
 						);		
-						*/	
+							
 					}
 
 				},
