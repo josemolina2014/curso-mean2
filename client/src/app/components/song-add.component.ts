@@ -42,41 +42,36 @@ export class SongAddComponent implements OnInit{
 	}
 
 	onSubmit()
-	{	
-		
-	
+	{
+		this._route.params.forEach((params: Params) => {		
+			let album_id = params['album'];
+			this.song.album = album_id;
 
-	
+			console.log(this.song);
+		});
 
-	this._route.params.forEach((params: Params) => {		
-		let album_id = params['album'];
-		this.song.album = album_id;
+		this._songService.addSong(this.token, this.song).subscribe(
+				response => {				
 
-		console.log(this.song);
-	});
+					if(!response.song){
+						this.alertMessage = 'Error en el servidor';
+					}else {
+						this.song = response.song;
+						this.alertMessage = 'La canción se ha creado correctamente!';
+						this._router.navigate(['/editar-tema', response.song._id]);
+					}
 
-	this._songService.addSong(this.token, this.song).subscribe(
-			response => {				
-
-				if(!response.song){
-					this.alertMessage = 'Error en el servidor';
-				}else {
-					this.song = response.song;
-					this.alertMessage = 'La canción se ha creado correctamente!';
-					//this._router.navigate(['/editar-song', response.album._id]);
+				},
+				error => {
+					var errorMessage = <any> error;
+			        if(errorMessage !=null)
+			        {
+			        	var body = JSON.parse(error._body);
+			        	this.alertMessage = body.message;
+			        	console.log(error);
+			        }
 				}
-
-			},
-			error => {
-				var errorMessage = <any> error;
-		        if(errorMessage !=null)
-		        {
-		        	var body = JSON.parse(error._body);
-		        	this.alertMessage = body.message;
-		        	console.log(error);
-		        }
-			}
-		);
+			);
 	}
 
 }
