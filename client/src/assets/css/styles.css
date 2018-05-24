@@ -164,9 +164,19 @@ html, body {
 }
 
 /* ALBUMS */
+.album-list {
+	height: auto;
+	margin-bottom: 715px;
+}
+.album-item .album-image {
+	height: 188px;
+	
+}
 
 .album-item {
-	height: 357px;
+	height: 300px;
+	margin-bottom: 20px;
+
 }
 .album-item .album-image img {
 	width: 100%;
@@ -177,6 +187,8 @@ html, body {
 #song-list{
 	margin: 0px;
 	padding: 0px;
+	min-height: 800px;
+	padding-bottom: 200px;
 }
 
 .song-item {
